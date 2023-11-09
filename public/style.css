@@ -1,0 +1,124 @@
+/* --------------------------------
+              GLOBAL
+   --------------------------------
+*/
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@700&display=swap');
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Anonymous Pro', Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.075rem;
+  color: var(--fourthiary-color);
+}
+:root {
+  --m-s: 0.5rem;
+  --m-m: 1rem;
+  --m-l: 2.5rem;
+  --p-s: 0.5rem;
+  --p-m: 1rem;
+  --p-l: 2.5rem;
+  --b-r-m: 0.25rem;
+  --b-r-l: 1rem;
+  --primary-color: #193149;
+  --secondary-color: #366390;
+  --tertiary-color: #558481;
+  --fourthiary-color: #b3976e;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 400vw;
+  height: 100vh;
+  max-height: 100vh;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: var(--primary-color);
+}
+header {
+  position: absolute;
+  top: var(--m-l);
+  right: var(--m-l);
+}
+main {
+  height: 100%;
+  max-height: 100vh;
+  display: flex;
+}
+section {
+  width: 100vw;
+  height: 100vh;
+}
+h1 {
+  font-weight: 800;
+}
+button {
+  cursor: pointer;
+}
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+/* --------------------------------
+              HOME
+   --------------------------------
+*/
+.home {
+}
+.home:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.2;
+  /* z-index: 1; */
+  background-image: url('/public/images/backgrounds/background_opacity-10-15_XS.svg');
+  background-repeat: repeat;
+  background-size: contain;
+}
+.home__title {
+  margin: var(--m-l) 0 0 var(--m-l);
+}
+.home__logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* --------------------------------
+              FOOTER
+   --------------------------------
+*/
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0 var(--m-l) var(--m-l) 0;
+}
+.nav__links {
+  display: flex;
+}
+.nav__links__ctn {
+  margin-right: var(--m-s);
+}
+.nav__links__ctn__link {
+  display: flex;
+  align-items: center;
+}
+.icon--nav {
+  margin-right: var(--m-s);
+}
