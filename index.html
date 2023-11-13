@@ -16,7 +16,9 @@
   </head>
   <body>
     <header>
-      <button class="sound"></button>
+      <button class="sound">
+        <img src="./public/images/icons/volume-on.svg" alt="Volume ON" class="icon" id="sound-toggler"/>
+      </button>
     </header>
     <main>
       <section class="home" id="home">
@@ -41,7 +43,7 @@
                 alt="Home icon."
                 class="icon icon--nav"
               />
-              <span>ACCUEIL</span>
+              <span id="label-accueil"></span>
             </a>
           </li>
           <li class="nav__links__ctn">
@@ -51,7 +53,7 @@
                 alt="About me icon."
                 class="icon icon--nav"
               />
-              <span>A PROPOS DE MOI</span>
+              <span id="label-aproposdemoi"></span>
             </a>
           </li>
           <li class="nav__links__ctn">
@@ -61,17 +63,17 @@
                 alt="Projects icon."
                 class="icon icon--nav"
               />
-              <span>PROJETS</span>
+              <span id="label-projets"></span>
             </a>
           </li>
-          <li class="nav__links__ctn">
+          <li class="nav__links__ctn nav__links__ctn--reset-m">
             <a href="#contact" class="nav__links__ctn__link">
               <img
                 src="./public/images/icons/contact.svg"
                 alt="Contact icon."
                 class="icon icon--nav"
               />
-              <span>CONTACT</span>
+              <span id="label-contact"></span>
             </a>
           </li>
         </ul>
