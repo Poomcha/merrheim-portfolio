@@ -30,6 +30,12 @@
   --secondary-color: #366390;
   --tertiary-color: #558481;
   --fourthiary-color: #b3976e;
+  --fs-h1-s: 20px;
+  --fs-h1-m: 24px;
+  --fs-h1-l: 32px;
+  --fs-global-s: 12px;
+  --fs-global-m: 14px;
+  --fs-global-l: 16px;
 }
 body {
   position: relative;
@@ -41,6 +47,7 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: var(--primary-color);
+  font-size: var(--fs-global-s);
 }
 header {
   position: absolute;
@@ -64,6 +71,7 @@ section {
 }
 h1 {
   font-weight: 800;
+  font-size: var(--fs-h1-s);
 }
 button {
   cursor: pointer;
@@ -109,21 +117,18 @@ button {
    --------------------------------
 */
 .about {
-  
 }
 /* --------------------------------
               PROJECTS
    --------------------------------
 */
 .projects {
-  
 }
 /* --------------------------------
               CONTACT
    --------------------------------
 */
 .contact {
-  
 }
 /* --------------------------------
               FOOTER
