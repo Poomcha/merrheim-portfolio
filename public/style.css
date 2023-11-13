@@ -31,11 +31,9 @@
   --tertiary-color: #558481;
   --fourthiary-color: #b3976e;
 }
-html {
-  scroll-behavior: smooth;
-}
 body {
-  width: 400vw;
+  position: relative;
+  width: 100vw;
   height: 100vh;
   max-height: 100vh;
   scroll-snap-type: x mandatory;
@@ -50,13 +48,19 @@ header {
   right: var(--m-l);
 }
 main {
-  height: 100%;
+  position: relative;
+  height: 100vh;
+  width: 100%;
   max-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
   display: flex;
+  scroll-behavior: smooth;
 }
 section {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 h1 {
   font-weight: 800;
@@ -73,6 +77,7 @@ button {
    --------------------------------
 */
 .home {
+  position: relative;
 }
 .home:before {
   content: ' ';
@@ -84,7 +89,7 @@ button {
   height: 100vh;
   opacity: 0.2;
   /* z-index: 1; */
-  background-image: url('./public/images/backgrounds/background_opacity-10-15_XS.svg');
+  background-image: url('../public/images/backgrounds/background_opacity-10-15_XS.svg');
   background-repeat: repeat;
   background-size: contain;
 }
@@ -98,6 +103,27 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+/* --------------------------------
+              ABOUT
+   --------------------------------
+*/
+.about {
+  
+}
+/* --------------------------------
+              PROJECTS
+   --------------------------------
+*/
+.projects {
+  
+}
+/* --------------------------------
+              CONTACT
+   --------------------------------
+*/
+.contact {
+  
 }
 /* --------------------------------
               FOOTER
