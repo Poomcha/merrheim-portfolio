@@ -1,3 +1,4 @@
+import anime from './node_modules/animejs/lib/anime.es.js';
 // --------------
 //     UTILS
 // --------------
@@ -20,7 +21,12 @@ const datas = {
     },
   },
   elements: {
+    content: document.querySelector('.content'),
     sound_toggler: document.querySelector('.sound'),
+    loader: {
+      container: document.querySelector('.loader'),
+      logo: document.querySelector('.loader__logo'),
+    },
   },
 };
 // Window size tracking
@@ -75,20 +81,46 @@ const state = {
 // --------------
 //     INIT
 // --------------
-window.addEventListener('load', () => {
+// Loading
+anime({
+  targets: datas.elements.loader.logo,
+  keyframes: [
+    { translateY: (state.window.height + 200) / 2 },
+    {
+      opacity: 0,
+      duration: 2800,
+      easing: 'easeOutExpo',
+    },
+  ],
+  autoplay: true,
+});
+// Loaded
+window.addEventListener('DOMContentLoaded', () => {
   getWindowDimensions();
   showNavLabels();
   toggleSoundImage();
-  // Handle resize
-  window.addEventListener('resize', () => {
-    state.window.width = getWindowDimensions().width;
-    state.window.height = getWindowDimensions().height;
-    // Handle navigation
-    showNavLabels();
-  });
-  // Handle sound toggle
-  datas.elements.sound_toggler.addEventListener('click', (e) => {
-    toggleSound();
-    toggleSoundImage();
+
+  window.addEventListener('load', () => {
+    // Cancel loader
+    setTimeout(() => {
+      state.loading = false;
+      anime({
+        targets: datas.elements.content,
+        keyframes: [{ opacity: 1, duration: 1800, easing: 'easeOutExpo' }],
+      });
+      datas.elements.loader.container.style.display = 'none';
+    }, 1800);
+    // Handle resize
+    window.addEventListener('resize', () => {
+      state.window.width = getWindowDimensions().width;
+      state.window.height = getWindowDimensions().height;
+      // Handle navigation
+      showNavLabels();
+    });
+    // Handle sound toggle
+    datas.elements.sound_toggler.addEventListener('click', () => {
+      toggleSound();
+      toggleSoundImage();
+    });
   });
 });
