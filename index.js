@@ -25,8 +25,8 @@ const datas = {
 };
 // Window size tracking
 const getWindowDimensions = () => ({
-  width: window.screen.availWidth,
-  height: window.screen.availHeight,
+  width: window.innerWidth,
+  height: window.innerHeight,
 });
 // Navigation labels visibility
 const showNavLabels = () => {
@@ -66,6 +66,7 @@ const state = {
   window: {
     width: getWindowDimensions().width,
     height: getWindowDimensions().height,
+    loading: true,
   },
   sound: {
     on: false,

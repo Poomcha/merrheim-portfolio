@@ -105,7 +105,6 @@ button {
   width: 100%;
   height: 100vh;
   opacity: 0.125;
-  /* z-index: 1; */
   background-image: url('../public/images/backgrounds/background_opacity-10-15_XS.svg');
   background-repeat: repeat;
   background-size: contain;
@@ -128,42 +127,12 @@ button {
 .about {
   position: relative;
 }
-.about:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.25;
-  /* z-index: 1; */
-  background-image: url('../public/images/backgrounds/pedals-1-blued.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 /* --------------------------------
               PROJECTS
    --------------------------------
 */
 .projects {
   position: relative;
-}
-.projects:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.25;
-  /* z-index: 1; */
-  background-image: url('../public/images/backgrounds/matos-1-blued.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 /* --------------------------------
               CONTACT
@@ -172,20 +141,19 @@ button {
 .contact {
   position: relative;
 }
-.contact:before {
-  content: ' ';
-  display: block;
+/* --------------------------------
+              BACKGROUNDS
+   --------------------------------
+*/
+.background {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   position: absolute;
-  left: 0;
   top: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.25;
-  /* z-index: 1; */
-  background-image: url('../public/images/backgrounds/mic-1-blued.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  left: 0;
 }
 /* --------------------------------
               FOOTER
