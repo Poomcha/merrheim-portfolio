@@ -1,3 +1,4 @@
+import AudioEngine from './scripts/simple-audio-engine/audioengine/audioengine.js';
 // --------------
 //     UTILS
 // --------------
@@ -27,6 +28,13 @@ const datas = {
       logo: document.querySelector('.loader__logo'),
     },
   },
+  sounds: [
+    {
+      name: 'mainLoop',
+      source: './public/sounds/AMB_ForestRiver_LP.ogg',
+      loop: true,
+    },
+  ],
 };
 // Window size tracking
 const getWindowDimensions = () => ({
@@ -39,7 +47,6 @@ const showNavLabels = () => {
   const label_aproposdemoi = document.querySelector('#label-aproposdemoi');
   const label_projets = document.querySelector('#label-projets');
   const label_contact = document.querySelector('#label-contact');
-
   if (window.innerWidth > datas.breakpoints.s) {
     label_accueil.innerHTML = datas.text.nav.accueil;
     label_aproposdemoi.innerHTML = datas.text.nav.aproposdemoi;
@@ -81,33 +88,41 @@ const state = {
 //     INIT
 // --------------
 // Loading
-anime({
-  targets: datas.elements.loader.logo,
-  keyframes: [
-    { translateY: (state.window.height + 200) / 2 },
-    {
-      opacity: 0,
-      duration: 2800,
-      easing: 'easeOutExpo',
-    },
-  ],
-  autoplay: true,
-});
+// anime({
+//   targets: datas.elements.loader.logo,
+//   keyframes: [
+//     { translateY: (state.window.height + 200) / 2 },
+//     {
+//       opacity: 0,
+//       duration: 2800,
+//       easing: 'easeOutExpo',
+//     },
+//   ],
+//   autoplay: true,
+// });
+// Create Sound Context
+let audioEngine;
+const createSoundContext = () => {
+  audioEngine = new AudioEngine();
+  // Register all sounds from datas.
+  datas.sounds.forEach((sound) => audioEngine.registerSound(sound));
+};
 // Loaded
 window.addEventListener('DOMContentLoaded', () => {
   getWindowDimensions();
   showNavLabels();
   toggleSoundImage();
-
   window.addEventListener('load', () => {
     // Cancel loader
     setTimeout(() => {
-      state.loading = false;
-      anime({
-        targets: datas.elements.content,
-        keyframes: [{ opacity: 1, duration: 1800, easing: 'easeOutExpo' }],
-      });
-      datas.elements.loader.container.style.display = 'none';
+      state.window.loading = false;
+      // anime({
+      //   targets: datas.elements.content,
+      //   keyframes: [{ opacity: 1, duration: 1800, easing: 'easeOutExpo' }],
+      // });
+      if (datas.elements.loader.container) {
+        datas.elements.loader.container.style.display = 'none';
+      }
     }, 1800);
     // Handle resize
     window.addEventListener('resize', () => {
@@ -116,10 +131,24 @@ window.addEventListener('DOMContentLoaded', () => {
       // Handle navigation
       showNavLabels();
     });
+    // Start the musicness
+    createSoundContext();
     // Handle sound toggle
-    datas.elements.sound_toggler.addEventListener('click', () => {
-      toggleSound();
-      toggleSoundImage();
-    });
+    if (datas.elements.sound_toggler) {
+      datas.elements.sound_toggler.addEventListener('click', () => {
+        toggleSound();
+        toggleSoundImage();
+        if (state.sound.on) {
+          audioEngine.playSound('mainLoop');
+          // audioEngine.unmuteSound('mainLoop');
+        } else {
+          // audioEngine.muteSound('mainLoop');
+          audioEngine.stopSound('mainLoop');
+        }
+      });
+    }
   });
+  // --------------
+  //     TESTS
+  // --------------
 });

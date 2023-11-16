@@ -9,6 +9,8 @@
   "author": "Poomcha",
   "license": "ISC",
   "dependencies": {
-    "animejs": "^3.2.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.3"
   }
 }
