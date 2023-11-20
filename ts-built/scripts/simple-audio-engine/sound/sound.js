@@ -3,31 +3,32 @@ class Sound {
     source;
     loop;
     audioContext;
+    masterGain;
     sourceNode = undefined;
     gainNode = undefined;
-    constructor(name, source, loop, audioContext) {
+    constructor(name, source, loop, audioContext, masterGain) {
         this.name = name;
         this.source = source;
         this.loop = loop;
         this.audioContext = audioContext;
+        this.masterGain = masterGain;
         this.name = name;
         this.source = source;
         this.loop = loop;
         this.audioContext = audioContext;
+        this.masterGain = masterGain;
     }
     async loadSound() {
         const response = await fetch(this.source);
         const audioData = await response.arrayBuffer();
-        return this.audioContext.decodeAudioData(audioData
-        // (audio) => console.log(audio),
-        // (err) => console.log(err)
-        );
+        return this.audioContext.decodeAudioData(audioData);
     }
     play() {
         this.loadSound().then((audioBuffer) => {
             this.sourceNode = this.audioContext.createBufferSource();
             this.sourceNode.buffer = audioBuffer;
             this.sourceNode.loop = this.loop;
+            this.sourceNode.connect(this.masterGain);
             this.sourceNode.connect(this.audioContext.destination);
             this.sourceNode.start(0);
         });
@@ -43,7 +44,7 @@ class Sound {
                 this.sourceNode.stop(this.audioContext.currentTime);
             }
             else {
-                this.stop();
+                this.sourceNode.stop();
             }
         }
     }
@@ -53,7 +54,7 @@ class Sound {
                 this.sourceNode.start(this.audioContext.currentTime);
             }
             else {
-                this.play();
+                this.sourceNode.start();
             }
         }
     }
@@ -69,6 +70,11 @@ class Sound {
     }
     unmute() {
         if (this.gainNode) {
+            if (!this.gainNode) {
+                this.gainNode = this.audioContext.createGain();
+                this.sourceNode.connect(this.gainNode);
+                this.gainNode.connect(this.audioContext.destination);
+            }
             this.gainNode.gain.setValueAtTime(1, this.audioContext.currentTime);
         }
     }

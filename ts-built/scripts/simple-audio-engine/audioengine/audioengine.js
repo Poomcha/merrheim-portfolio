@@ -1,19 +1,30 @@
 import Sound from '../sound/sound.js';
 class AudioEngine {
     audioContext;
+    masterGain;
     sounds;
     findSound = (name) => this.sounds.find((sound) => sound.name === name);
     constructor() {
         this.audioContext = new AudioContext();
+        this.masterGain = this.audioContext.createGain();
         this.sounds = [];
     }
-    registerSound(soundData) {
+    connectMaster() {
+        this.masterGain.connect(this.audioContext.destination);
+    }
+    resumeCtx() {
+        this.audioContext.resume();
+    }
+    suspendCtx() {
+        this.audioContext.suspend();
+    }
+    async registerSound(soundData) {
         const soundInstance = this.findSound(soundData.name);
         if (soundInstance) {
             console.log(`Sound's name ${soundData.name} already exists, please choose another name.`);
             return;
         }
-        const sound = new Sound(soundData.name, soundData.source, soundData.loop, this.audioContext);
+        const sound = new Sound(soundData.name, soundData.source, soundData.loop, this.audioContext, this.masterGain);
         this.sounds.push(sound);
     }
     playSound(name) {
@@ -52,6 +63,7 @@ class AudioEngine {
             console.log(`Sound ${name} not found.`);
         }
     }
+    // Need work.
     muteSound(name) {
         const sound = this.findSound(name);
         if (sound) {
@@ -61,6 +73,7 @@ class AudioEngine {
             console.log(`Sound ${name} not found.`);
         }
     }
+    // Need work.
     unmuteSound(name) {
         const sound = this.findSound(name);
         if (sound) {
@@ -69,6 +82,12 @@ class AudioEngine {
         else {
             console.log(`Sound ${name} not found.`);
         }
+    }
+    muteAll() {
+        this.masterGain.gain.value = 0;
+    }
+    unmuteAll() {
+        this.masterGain.gain.value = 1;
     }
     removeSound(name) {
         const soundIndex = this.sounds.findIndex((sound) => sound.name === name);

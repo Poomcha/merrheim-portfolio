@@ -64,6 +64,7 @@ header {
   z-index: 1;
   top: var(--m-m);
   right: var(--m-m);
+  display: flex;
 }
 main {
   position: relative;
@@ -115,6 +116,7 @@ button {
   padding: var(--p-xs);
   background-color: transparent;
   display: flex;
+  margin-left: var(--m-xs);
 }
 .date {
   text-decoration: underline;

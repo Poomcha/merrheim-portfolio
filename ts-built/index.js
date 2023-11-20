@@ -22,7 +22,8 @@ const datas = {
     },
     elements: {
         content: document.querySelector('.content'),
-        sound_toggler: document.querySelector('.sound'),
+        mute: document.querySelector('#mute'),
+        play_pause: document.querySelector('#pause'),
         loader: {
             container: document.querySelector('.loader'),
             logo: document.querySelector('.loader__logo'),
@@ -31,8 +32,28 @@ const datas = {
     sounds: [
         {
             name: 'mainLoop',
-            source: './public/sounds/AMB_ForestRiver_LP.ogg',
+            source: './public/sounds/loop.opus',
             loop: true,
+        },
+        {
+            name: 'hover',
+            source: './public/sounds/hover.opus',
+            loop: false,
+        },
+        {
+            name: 'click',
+            source: './public/sounds/click.opus',
+            loop: false,
+        },
+        {
+            name: 'scroll',
+            source: './public/sounds/scroll.opus',
+            loop: false,
+        },
+        {
+            name: 'slide',
+            source: './public/sounds/slide.opus',
+            loop: false,
         },
     ],
 };
@@ -57,18 +78,32 @@ const showNavLabels = () => {
         [label_accueil, label_aproposdemoi, label_projets, label_contact].forEach((label) => (label.innerHTML = ''));
     }
 };
-// Toggle sound
-const toggleSound = () => {
+// Toggle mute
+const toggleMute = () => {
     state.sound.on = !state.sound.on;
 };
-// Toggle sound image
-const toggleSoundImage = () => {
+// Toggle play
+const togglePLay = () => {
+    state.sound.play = !state.sound.play;
+};
+// Toggle mute image
+const toggleMuteImage = () => {
     const img_toggler = document.querySelector('#sound-toggler');
     if (state.sound.on) {
         img_toggler.setAttribute('src', './public/images/icons/volume-on.svg');
     }
     else {
         img_toggler.setAttribute('src', './public/images/icons/volume-off.svg');
+    }
+};
+// Toggle play image
+const togglePlayImage = () => {
+    const img_toggler = document.querySelector('#loop-control');
+    if (state.sound.play) {
+        img_toggler.setAttribute('src', './public/images/icons/pause.svg');
+    }
+    else {
+        img_toggler.setAttribute('src', './public/images/icons/play.svg');
     }
 };
 // --------------
@@ -82,6 +117,7 @@ const state = {
     },
     sound: {
         on: false,
+        play: true,
     },
 };
 // --------------
@@ -99,15 +135,10 @@ const createSoundContext = () => {
 window.addEventListener('DOMContentLoaded', () => {
     getWindowDimensions();
     showNavLabels();
-    toggleSoundImage();
+    toggleMuteImage();
+    togglePlayImage();
     window.addEventListener('load', () => {
         // Cancel loader
-        setTimeout(() => {
-            state.window.loading = false;
-            if (datas.elements.loader.container) {
-                datas.elements.loader.container.style.display = 'none';
-            }
-        }, 1800);
         // Handle resize
         window.addEventListener('resize', () => {
             state.window.width = getWindowDimensions().width;
@@ -117,11 +148,14 @@ window.addEventListener('DOMContentLoaded', () => {
         });
         // Start the musicness
         createSoundContext();
+        audioEngine.connectMaster();
         // Handle sound toggle
-        if (datas.elements.sound_toggler) {
-            datas.elements.sound_toggler.addEventListener('click', () => {
-                toggleSound();
-                toggleSoundImage();
+        if (datas.elements.mute) {
+            datas.elements.mute.addEventListener('click', () => {
+                // Make sure autoplay works.
+                audioEngine.resumeCtx();
+                toggleMute();
+                toggleMuteImage();
                 if (state.sound.on) {
                     audioEngine.playSound('mainLoop');
                 }
@@ -130,6 +164,37 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+        if (datas.elements.play_pause) {
+            datas.elements.play_pause.addEventListener('click', () => {
+                // Make sure autoplay works.
+                audioEngine.resumeCtx();
+                togglePLay();
+                togglePlayImage();
+                if (state.sound.on) {
+                    if (state.sound.play) {
+                        audioEngine.playSound('mainLoop');
+                    }
+                    else {
+                        audioEngine.stopSound('mainLoop');
+                    }
+                }
+            });
+        }
+        // Handle players.
+        // const players = document.querySelectorAll('.player');
+        // Handle sounds on video playback.
+        // players.forEach((iframe) => {
+        //   console.log(iframe);
+        //   iframe.addEventListener('click', () => {
+        //     if (state.sound.on) {
+        //       toggleSound();
+        //       toggleSoundImage();
+        //       datas.sounds.forEach((sound) => {
+        //         audioEngine.stopSound(sound.name);
+        //       });
+        //     }
+        //   });
+        // });
     });
     // --------------
     //     TESTS
