@@ -106,6 +106,18 @@ const togglePlayImage = () => {
         img_toggler.setAttribute('src', './public/images/icons/play.svg');
     }
 };
+// Check for state.sound.on
+const checkMute = (func) => {
+    const P = new Promise((resolve, reject) => {
+        if (state.sound.on) {
+            resolve(func);
+        }
+        else {
+            reject();
+        }
+    });
+    P.then((func) => func()).catch(() => { });
+};
 // --------------
 //     STATE
 // --------------
@@ -156,7 +168,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 audioEngine.resumeCtx();
                 toggleMute();
                 toggleMuteImage();
-                if (state.sound.on) {
+                if (state.sound.on && state.sound.play) {
                     audioEngine.playSound('mainLoop');
                 }
                 else {
@@ -165,7 +177,7 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
         if (datas.elements.play_pause) {
-            datas.elements.play_pause.addEventListener('click', () => {
+            datas.elements.play_pause.addEventListener('click', (e) => {
                 // Make sure autoplay works.
                 audioEngine.resumeCtx();
                 togglePLay();
@@ -180,6 +192,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+        // Handle click sound
+        window.addEventListener('click', () => {
+            checkMute(() => audioEngine.playSound('click'));
+        });
+        // Handle slide sound
+        const links = document.querySelectorAll('.nav__links__ctn__link');
+        links.forEach((link) => link.addEventListener('click', (e) => {
+            e.stopPropagation();
+            checkMute(() => audioEngine.playSound('slide'));
+        }));
         // Handle players.
         // const players = document.querySelectorAll('.player');
         // Handle sounds on video playback.
