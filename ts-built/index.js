@@ -22,6 +22,7 @@ const datas = {
     },
     elements: {
         content: document.querySelector('.content'),
+        scrollables: document.querySelectorAll('.section__content'),
         mute: document.querySelector('#mute'),
         play_pause: document.querySelector('#pause'),
         loader: {
@@ -202,9 +203,33 @@ window.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             checkMute(() => audioEngine.playSound('slide'));
         }));
+        // Handle scroll sound
+        let ticking = false;
+        datas.elements.scrollables.forEach((scrollable) => {
+            scrollable.addEventListener('scroll', () => {
+                if (!ticking) {
+                    checkMute(() => audioEngine.playSound('scroll'));
+                }
+                ticking = true;
+            });
+            scrollable.addEventListener('scrollend', () => {
+                ticking = false;
+            });
+        });
+        // Handle hover sound
+        const hoverables = document.querySelectorAll('.external-link');
+        hoverables.forEach((hoverable) => {
+            hoverable.addEventListener('mouseover', () => {
+                checkMute(() => audioEngine.playSound('hover'));
+            });
+        });
         // Handle players.
-        // const players = document.querySelectorAll('.player');
+        const players = document.querySelectorAll('.player');
         // Handle sounds on video playback.
+        players.forEach((player) => {
+            // player.addEventListener('load', () => {
+            // });
+        });
         // players.forEach((iframe) => {
         //   console.log(iframe);
         //   iframe.addEventListener('click', () => {
