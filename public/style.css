@@ -89,8 +89,8 @@ section {
   overflow-y: scroll;
   background: var(--primary-color-tsp);
   box-shadow: 0 8px 32px 0 var(--primary-color-tsp);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--b-r-m);
   border: 1px solid var(--primary-color-tsp);
   padding: var(--p-s);
