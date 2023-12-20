@@ -230,18 +230,6 @@ window.addEventListener('DOMContentLoaded', () => {
             // player.addEventListener('load', () => {
             // });
         });
-        // players.forEach((iframe) => {
-        //   console.log(iframe);
-        //   iframe.addEventListener('click', () => {
-        //     if (state.sound.on) {
-        //       toggleSound();
-        //       toggleSoundImage();
-        //       datas.sounds.forEach((sound) => {
-        //         audioEngine.stopSound(sound.name);
-        //       });
-        //     }
-        //   });
-        // });
     });
     // --------------
     //     TESTS
