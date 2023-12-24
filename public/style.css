@@ -95,9 +95,23 @@ section {
   border: 1px solid var(--primary-color-tsp);
   padding: var(--p-s);
 }
+@media (hover: hover) {
+  .section__content {
+    scrollbar-width: 1.5rem;
+  }
+  .section__content::-webkit-scrollbar {
+    display: none;
+  }
+}
 iframe {
   width: 100%;
   height: 45vmin;
+}
+@media screen and (min-width: 600px) {
+  iframe {
+    width: 100%;
+    height: 34vmin;
+  }
 }
 h1 {
   font-weight: 800;
@@ -147,7 +161,14 @@ button {
 }
 .photo__profil {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 1.25rem;
+}
+@media screen and (min-width: 600px) {
+  .photo__profil {
+    width: 200px;
+  }
 }
 .section__content > .photo__profil {
   margin-top: 1.5rem;
@@ -226,10 +247,28 @@ button {
   position: relative;
   font-size: 16px;
 }
+.description {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 600px) {
+  .description {
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
 .softwares {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.line-break {
+  display: block;
+  width: 96.5%;
+  height: 0.1rem;
+  background-color: var(--fourthiary-color);
+  margin: var(--m-m) 0;
 }
 .softwares__figure {
   display: flex;
@@ -249,6 +288,38 @@ button {
 .projects {
   position: relative;
 }
+.projects > .section__content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.projects > .section__content li {
+  width: 100%;
+}
+@media screen and (min-width: 600px) {
+  .projects > .section__content li {
+    width: calc((100% - var(--p-s) * 2 - 1.5rem) / 2);
+    /* height: fit-content; */
+  }
+  .projects > .section__content > li h3 {
+    max-width: 100%;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 900px) {
+  .projects > .section__content li {
+    width: calc((100% - var(--p-s) * 2 - 1.5rem) / 3.1);
+  }
+  .projects > .section__content > li h3 {
+    max-width: 100%;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+}
 /* --------------------------------
               CONTACT
    --------------------------------
@@ -256,12 +327,18 @@ button {
 .contact {
   position: relative;
 }
+@media screen and (min-width: 600px) {
+  .contact > .section__content > div {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
 /* --------------------------------
               BACKGROUNDS
    --------------------------------
 */
 .background {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   height: 100%;
   object-fit: cover;
