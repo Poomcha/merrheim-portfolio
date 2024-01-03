@@ -27,6 +27,7 @@
   --p-s: 0.5rem;
   --p-m: 1rem;
   --p-l: 2.5rem;
+  --p-xl: 4rem;
   --b-r-m: 0.25rem;
   --b-r-l: 1rem;
   --primary-color: #193149;
@@ -66,6 +67,11 @@ header {
   right: var(--m-m);
   display: flex;
 }
+@media screen and (min-width: 900px) {
+  header {
+    right: calc(2.5 * var(--p-xl));
+  }
+}
 main {
   position: relative;
   height: 100vh;
@@ -76,11 +82,45 @@ main {
   display: flex;
   scroll-behavior: smooth;
 }
+aside {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 calc(var(--m-m) - var(--p-xs)) var(--m-m);
+  border: 2px solid #b3976e;
+  border-radius: var(--b-r-m);
+  z-index: 3;
+  padding: var(--p-xs);
+}
+@media screen and (min-width: 900px) {
+  aside {
+    left: calc(2.5 * var(--p-xl) - var(--m-m));
+  }
+}
+aside > ul {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+aside > ul > li > a {
+  display: flex;
+  padding: 0 var(--p-xs);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
 section {
   min-width: 100vw;
   max-width: 100vw;
   max-height: 100dvh;
-  padding: calc(1.5 * var(--p-l)) var(--p-m);
+  padding: var(--p-xl) var(--p-m);
+}
+@media screen and (min-width: 900px) {
+  section {
+    padding: var(--p-xl) calc(2.5 * var(--p-xl));
+  }
 }
 .section__content {
   width: 100%;
@@ -185,7 +225,6 @@ button {
   height: 100%;
   z-index: 2;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }
 .loader__logo {
@@ -230,6 +269,11 @@ button {
 }
 .home__title {
   margin: var(--m-m) 0 0 var(--m-m);
+}
+@media screen and (min-width: 900px) {
+  .home__title {
+    margin-left: calc(2.5 * var(--p-xl) - var(--m-m));
+  }
 }
 .home__logo {
   width: 200px;
@@ -321,19 +365,6 @@ button {
   }
 }
 /* --------------------------------
-              CONTACT
-   --------------------------------
-*/
-.contact {
-  position: relative;
-}
-@media screen and (min-width: 600px) {
-  .contact > .section__content > div {
-    display: flex;
-    gap: 1.5rem;
-  }
-}
-/* --------------------------------
               BACKGROUNDS
    --------------------------------
 */
@@ -357,6 +388,11 @@ footer {
   bottom: 0;
   right: 0;
   margin: 0 var(--m-m) var(--m-m) 0;
+}
+@media screen and (min-width: 900px) {
+  footer {
+    margin-right: calc(2.5 * var(--p-xl) - var(--m-m));
+  }
 }
 .nav__links {
   display: flex;

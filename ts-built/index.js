@@ -17,7 +17,6 @@ const datas = {
             accueil: 'ACCUEIL',
             aproposdemoi: 'A PROPOS DE MOI',
             projets: 'PROJETS',
-            contact: 'CONTACT',
         },
     },
     elements: {
@@ -29,6 +28,7 @@ const datas = {
             container: document.querySelector('.loader'),
             logo: document.querySelector('.loader__logo'),
         },
+        nav_links: document.querySelectorAll('.nav__links__ctn__link'),
     },
     sounds: [
         {
@@ -68,15 +68,20 @@ const showNavLabels = () => {
     const label_accueil = document.querySelector('#label-accueil');
     const label_aproposdemoi = document.querySelector('#label-aproposdemoi');
     const label_projets = document.querySelector('#label-projets');
-    const label_contact = document.querySelector('#label-contact');
     if (window.innerWidth > datas.breakpoints.s) {
         label_accueil.innerHTML = datas.text.nav.accueil;
         label_aproposdemoi.innerHTML = datas.text.nav.aproposdemoi;
         label_projets.innerHTML = datas.text.nav.projets;
-        label_contact.innerHTML = datas.text.nav.contact;
     }
     else {
-        [label_accueil, label_aproposdemoi, label_projets, label_contact].forEach((label) => (label.innerHTML = ''));
+        [label_accueil, label_aproposdemoi, label_projets].forEach((label) => (label.innerHTML = ''));
+    }
+};
+// Hide navigation hash
+const hideNavigationHash = () => {
+    const location = window.location;
+    if (location.hash) {
+        history.pushState('', document.title, window.location.pathname);
     }
 };
 // Toggle mute
@@ -159,6 +164,8 @@ window.addEventListener('DOMContentLoaded', () => {
             // Handle navigation
             showNavLabels();
         });
+        // Handle hash hiding
+        window.addEventListener('hashchange', hideNavigationHash);
         // Start the musicness
         createSoundContext();
         audioEngine.connectMaster();
