@@ -66,6 +66,7 @@ header {
   top: var(--m-m);
   right: var(--m-m);
   display: flex;
+  gap: var(--m-s);
 }
 @media screen and (min-width: 900px) {
   header {
@@ -101,10 +102,10 @@ aside > ul {
   display: flex;
   align-items: center;
   justify-items: center;
+  gap: var(--m-s);
 }
 aside > ul > li > a {
   display: flex;
-  padding: 0 var(--p-xs);
 }
 a {
   text-decoration: none;
@@ -175,7 +176,6 @@ button {
   padding: var(--p-xs);
   background-color: transparent;
   display: flex;
-  margin-left: var(--m-xs);
 }
 .date {
   text-decoration: underline;
@@ -396,9 +396,7 @@ footer {
 }
 .nav__links {
   display: flex;
-}
-.nav__links__ctn {
-  margin-right: var(--m-m);
+  gap: var(--m-s);
 }
 .nav__links__ctn--reset-m {
   margin-right: 0;
@@ -407,6 +405,6 @@ footer {
   display: flex;
   align-items: center;
 }
-.icon--nav {
-  margin-right: var(--m-s);
+.nav-label:not([data='hide']) {
+  margin-left: var(--m-s);
 }

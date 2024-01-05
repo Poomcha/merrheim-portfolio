@@ -72,9 +72,15 @@ const showNavLabels = () => {
         label_accueil.innerHTML = datas.text.nav.accueil;
         label_aproposdemoi.innerHTML = datas.text.nav.aproposdemoi;
         label_projets.innerHTML = datas.text.nav.projets;
+        [label_accueil, label_aproposdemoi, label_projets].forEach((label) => {
+            label.removeAttribute('data');
+        });
     }
     else {
-        [label_accueil, label_aproposdemoi, label_projets].forEach((label) => (label.innerHTML = ''));
+        [label_accueil, label_aproposdemoi, label_projets].forEach((label) => {
+            label.innerHTML = '';
+            label.setAttribute('data', 'hide');
+        });
     }
 };
 // Hide navigation hash
