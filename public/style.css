@@ -323,6 +323,7 @@ button {
   width: auto;
   max-width: 80%;
   height: 75px;
+  object-fit: contain;
 }
 /* --------------------------------
               PROJECTS
