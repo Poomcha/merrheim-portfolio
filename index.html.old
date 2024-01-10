@@ -360,35 +360,125 @@
                 <span class="date">Studio Les Lutins - 2023:</span> Total War:
                 Warhammer 3
               </h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/Vd0KYRVpHqc?si=fnLCwk5qYIdEHZcG"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-1">
               <h3><span class="date">ESMA - 2023:</span> Axiome</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/gynci-i_ldM?si=stAIV31qfR2FmNrl"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-2">
               <h3><span class="date">ESMA - 2022:</span> Instinct</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/34HQEqTc6kE?si=iIwZi1pzHe_HjnGz"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-3">
               <h3><span class="date">ESMA - 2022:</span> Sound of Light</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/I8PyuJda-vw?si=PLh9tzrFSdvGXdjh"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-4">
               <h3><span class="date">ESMA - 2022:</span> Baovelanh</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/cnh_969HquU?si=xkswtXnHMlyeHKC6"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-5">
               <h3><span class="date">ESMA - 2022:</span> Mr. Flower</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/h8gDTPXRP4Y?si=a2PPnOOw3MBOZ_gq"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-6">
               <h3><span class="date">ESMA - 2022:</span> Celestial</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/BeIX0AXEh7g?si=OBFnjaRE3WiLeQbh"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-7">
               <h3><span class="date">ESMA - 2022:</span> Scums</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/MqsepQF3Ohs?si=AV-FWEB3qXz4P6ue"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-8">
               <h3><span class="date">ESMA - 2022:</span> Matriochka</h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/IBOny9dn1Qk?si=57fWEATSVyI455dk"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
             <li class="video-wrapper video-wrapper-9">
               <h3>
                 <span class="date">Studio Les Lutins - 2021:</span> Star Citizen
               </h3>
+              <!-- <iframe
+                src="https://www.youtube.com/embed/ZetdIQPV9k4?si=cGe7uGGsEl61M4qy"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                class="player"
+              ></iframe> -->
             </li>
           </ul>
         </section>

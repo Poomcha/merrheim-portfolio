@@ -60,6 +60,48 @@ const DATA = {
       mute: true,
     },
   ],
+  projects: [
+    {
+      id: 0,
+      src: 'https://www.youtube.com/embed/Vd0KYRVpHqc?si=fnLCwk5qYIdEHZcG',
+    },
+    {
+      id: 1,
+      src: 'https://www.youtube.com/embed/gynci-i_ldM?si=stAIV31qfR2FmNrl',
+    },
+    {
+      id: 2,
+      src: 'https://www.youtube.com/embed/34HQEqTc6kE?si=iIwZi1pzHe_HjnGz',
+    },
+    {
+      id: 3,
+      src: 'https://www.youtube.com/embed/I8PyuJda-vw?si=PLh9tzrFSdvGXdjh',
+    },
+    {
+      id: 4,
+      src: 'https://www.youtube.com/embed/cnh_969HquU?si=xkswtXnHMlyeHKC6',
+    },
+    {
+      id: 5,
+      src: 'https://www.youtube.com/embed/h8gDTPXRP4Y?si=a2PPnOOw3MBOZ_gq',
+    },
+    {
+      id: 6,
+      src: 'https://www.youtube.com/embed/BeIX0AXEh7g?si=OBFnjaRE3WiLeQbh',
+    },
+    {
+      id: 7,
+      src: 'https://www.youtube.com/embed/MqsepQF3Ohs?si=AV-FWEB3qXz4P6ue',
+    },
+    {
+      id: 8,
+      src: 'https://www.youtube.com/embed/IBOny9dn1Qk?si=57fWEATSVyI455dk',
+    },
+    {
+      id: 9,
+      src: 'https://www.youtube.com/embed/ZetdIQPV9k4?si=cGe7uGGsEl61M4qy',
+    },
+  ],
 };
 // Navigation labels visibility
 const showNavLabels = () => {
@@ -124,6 +166,30 @@ const checkMute = (func) => {
   });
   P.then((func) => func()).catch(() => {});
 };
+// Create Iframe
+const createIframe = (src) => {
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = 'Youtube Video Player';
+  iframe.frameBorder = 0;
+  iframe.allow =
+    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  iframe.loading = 'lazy';
+  iframe.modestbranding = true;
+
+  return iframe;
+};
+// Integrate Iframe
+const integrateIframes = (parents) => {
+  parents.forEach((parent) => {
+    const parentId = parent.classList[1].split('-')[2];
+    parent.appendChild(
+      createIframe(DATA.projects.find((project) => project.id == parentId).src)
+    );
+    return;
+  });
+};
 // --------------
 //     STATE
 // --------------
@@ -169,7 +235,10 @@ window.addEventListener('DOMContentLoaded', () => {
       play_pause: document.querySelector('#pause'),
       nav_links: document.querySelectorAll('.nav__links__ctn__link'),
       players: document.querySelectorAll('.player'),
+      video_wrappers: document.querySelectorAll('.video-wrapper'),
     };
+    // Create all Iframes
+    integrateIframes(ELEMENTS.video_wrappers);
     // Handle resize
     window.addEventListener('resize', () => {
       // Handle navigation
