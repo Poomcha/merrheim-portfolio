@@ -129,6 +129,21 @@ const hideNavigationHash = () => {
     history.pushState('', document.title, window.location.pathname);
   }
 };
+// Register sounds
+const registerSounds = (soundDatas = DATA.sounds) => {
+  // Register all sounds from DATA using Howler.
+  const sounds = {};
+  soundDatas.forEach((sound) => {
+    sounds[sound.name] = new Howl({
+      src: [sound.source],
+      loop: sound.loop,
+      html5: sound.html5,
+      autoplay: sound.autoplay,
+      mute: sound.mute,
+    });
+  });
+  return sounds;
+};
 // Toggle mute
 const toggleMute = () => {
   state.sound.on = !state.sound.on;
@@ -206,21 +221,7 @@ const state = {
 //     INIT
 // --------------
 // Loading
-// Create Sound Context
-const registerSounds = (soundDatas = DATA.sounds) => {
-  // Register all sounds from DATA using Howler.
-  const sounds = {};
-  soundDatas.forEach((sound) => {
-    sounds[sound.name] = new Howl({
-      src: [sound.source],
-      loop: sound.loop,
-      html5: sound.html5,
-      autoplay: sound.autoplay,
-      mute: sound.mute,
-    });
-  });
-  return sounds;
-};
+
 // Loaded
 window.addEventListener('DOMContentLoaded', () => {
   showNavLabels();
@@ -306,10 +307,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     // Handle players.
     // Handle sounds on video playback.
-    ELEMENTS.players.forEach((player) => {
-      // player.addEventListener('load', () => {
-      // });
-    });
+    // const players = document.querySelectorAll('iframe');
+    // players.forEach((player) =>
+    //   player.contentWindow.addEventListener('click', (e) => console.log(e))
+    // );
   });
   // --------------
   //     TESTS
