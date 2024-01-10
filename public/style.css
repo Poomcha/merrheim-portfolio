@@ -159,13 +159,11 @@ h1 {
   font-size: var(--fs-h1-s);
 }
 h2 {
-  padding: var(--p-m);
+  padding: var(--p-l);
 }
 h3 {
-  padding: var(--p-m);
+  padding: var(--p-s);
   width: 100%;
-}
-ul > h3 {
   text-decoration: underline;
   text-underline-offset: 2.5px;
 }
@@ -189,6 +187,7 @@ button {
   display: inline-block;
   width: 1rem;
   height: 1rem;
+  margin-left: var(--m-xs);
   background: url('../public/images/icons/link-solid.svg') no-repeat center;
 }
 .external-link > span {
@@ -312,7 +311,7 @@ button {
   width: 96.5%;
   height: 0.1rem;
   background-color: var(--fourthiary-color);
-  margin: var(--m-m) 0;
+  margin: var(--m-m) auto;
 }
 .softwares__figure {
   display: flex;
