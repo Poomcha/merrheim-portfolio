@@ -30,6 +30,11 @@
     <link
       rel="preload"
       as="image"
+      href="./public/images/backgrounds/vu-meter-1-blued.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
       href="./public/images/backgrounds/pedals-1-blued.webp"
     />
     <link
@@ -115,6 +120,66 @@
             loading="eager"
             decoding="async"
           />
+        </section>
+        <section class="studio" id="studio">
+          <img
+            src="./public/images/backgrounds/vu-meter-1-blued.webp"
+            alt="Projets background."
+            class="background"
+            width="4976"
+            height="2800"
+            decoding="async"
+            loading="eager"
+          />
+          <article class="section__content"></article>
+        </section>
+        <section class="projects" id="projects">
+          <img
+            src="./public/images/backgrounds/matos-1-blued.webp"
+            alt="Projets background."
+            class="background"
+            width="4976"
+            height="2800"
+            decoding="async"
+            loading="eager"
+          />
+          <ul class="section__content">
+            <li class="video-wrapper video-wrapper-0">
+              <h3>
+                <span class="date">Studio Les Lutins - 2023</span>: Total War:
+                Warhammer 3
+              </h3>
+            </li>
+            <li class="video-wrapper video-wrapper-1">
+              <h3><span class="date">ESMA - 2023</span>: Axiome</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-2">
+              <h3><span class="date">ESMA - 2022</span>: Instinct</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-3">
+              <h3><span class="date">ESMA - 2022</span>: Sound of Light</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-4">
+              <h3><span class="date">ESMA - 2022</span>: Baovelanh</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-5">
+              <h3><span class="date">ESMA - 2022</span>: Mr. Flower</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-6">
+              <h3><span class="date">ESMA - 2022</span>: Celestial</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-7">
+              <h3><span class="date">ESMA - 2022</span>: Scums</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-8">
+              <h3><span class="date">ESMA - 2022</span>: Matriochka</h3>
+            </li>
+            <li class="video-wrapper video-wrapper-9">
+              <h3>
+                <span class="date">Studio Les Lutins - 2021</span>: Star Citizen
+              </h3>
+            </li>
+          </ul>
         </section>
         <section class="about" id="about">
           <img
@@ -448,54 +513,6 @@
             </ul>
           </article>
         </section>
-        <section class="projects" id="projects">
-          <img
-            src="./public/images/backgrounds/matos-1-blued.webp"
-            alt="Projets background."
-            class="background"
-            width="4976"
-            height="2800"
-            decoding="async"
-            loading="eager"
-          />
-          <ul class="section__content">
-            <li class="video-wrapper video-wrapper-0">
-              <h3>
-                <span class="date">Studio Les Lutins - 2023</span>: Total War:
-                Warhammer 3
-              </h3>
-            </li>
-            <li class="video-wrapper video-wrapper-1">
-              <h3><span class="date">ESMA - 2023</span>: Axiome</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-2">
-              <h3><span class="date">ESMA - 2022</span>: Instinct</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-3">
-              <h3><span class="date">ESMA - 2022</span>: Sound of Light</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-4">
-              <h3><span class="date">ESMA - 2022</span>: Baovelanh</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-5">
-              <h3><span class="date">ESMA - 2022</span>: Mr. Flower</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-6">
-              <h3><span class="date">ESMA - 2022</span>: Celestial</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-7">
-              <h3><span class="date">ESMA - 2022</span>: Scums</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-8">
-              <h3><span class="date">ESMA - 2022</span>: Matriochka</h3>
-            </li>
-            <li class="video-wrapper video-wrapper-9">
-              <h3>
-                <span class="date">Studio Les Lutins - 2021</span>: Star Citizen
-              </h3>
-            </li>
-          </ul>
-        </section>
       </main>
       <footer>
         <nav>
@@ -511,13 +528,13 @@
               </a>
             </li>
             <li class="nav__links__ctn">
-              <a href="#about" class="nav__links__ctn__link">
+              <a href="#studio" class="nav__links__ctn__link">
                 <img
-                  src="./public/images/icons/aboutme-alt.svg"
-                  alt="About me icon."
+                  src="./public/images/icons/micro.svg"
+                  alt="Studio icon."
                   class="icon icon--nav"
                 />
-                <span id="label-aproposdemoi" class="nav-label"></span>
+                <span id="label-studio" class="nav-label"></span>
               </a>
             </li>
             <li class="nav__links__ctn">
@@ -528,6 +545,16 @@
                   class="icon icon--nav"
                 />
                 <span id="label-projets" class="nav-label"></span>
+              </a>
+            </li>
+            <li class="nav__links__ctn">
+              <a href="#about" class="nav__links__ctn__link">
+                <img
+                  src="./public/images/icons/aboutme-alt.svg"
+                  alt="About me icon."
+                  class="icon icon--nav"
+                />
+                <span id="label-aproposdemoi" class="nav-label"></span>
               </a>
             </li>
           </ul>

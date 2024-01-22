@@ -23,6 +23,7 @@
   --m-s: 0.5rem;
   --m-m: 1rem;
   --m-l: 2.5rem;
+  --m-xl: 4rem;
   --p-xs: 0.25rem;
   --p-s: 0.5rem;
   --p-m: 1rem;
@@ -64,7 +65,7 @@ header {
   display: flex;
   gap: var(--m-s);
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   header {
     right: calc(2.5 * var(--p-xl));
   }
@@ -89,7 +90,7 @@ aside {
   z-index: 3;
   padding: var(--p-xs);
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   aside {
     left: calc(2.5 * var(--p-xl) - var(--m-m));
   }
@@ -119,7 +120,7 @@ section {
   max-height: 100dvh;
   padding: var(--p-xl) var(--p-m);
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   section {
     padding: var(--p-xl) calc(2.5 * var(--p-xl));
   }
@@ -203,15 +204,13 @@ button {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 1.25rem;
+  border-radius: var(--b-r-m);
 }
 @media screen and (min-width: 600px) {
   .photo__profil {
     width: 200px;
+    margin-top: var(--m-xl);
   }
-}
-.section__content > .photo__profil {
-  margin-top: 1.5rem;
 }
 /* --------------------------------
               LOADER
@@ -270,7 +269,7 @@ button {
 .home__title {
   margin: var(--m-m) 0 0 var(--m-m);
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   .home__title {
     margin-left: calc(2.5 * var(--p-xl) - var(--m-m));
   }
@@ -284,12 +283,29 @@ button {
   transform: translate(-50%, -50%);
 }
 /* --------------------------------
+              STUDIO
+   --------------------------------
+*/
+.studio {
+  position: relative;
+}
+/* --------------------------------
               ABOUT
    --------------------------------
 */
 .about {
   position: relative;
   font-size: 16px;
+}
+@media screen and (min-width: 900px) {
+  .about__article {
+    padding: var(--p-xl);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .about__article {
+    padding: var(--p-l);
+  }
 }
 .description {
   display: flex;
@@ -391,7 +407,7 @@ footer {
   right: 0;
   margin: 0 var(--m-m) var(--m-m) 0;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   footer {
     margin-right: calc(2.5 * var(--p-xl) - var(--m-m));
   }

@@ -14,8 +14,9 @@ const DATA = {
   text: {
     nav: {
       accueil: 'ACCUEIL',
-      aproposdemoi: 'A PROPOS DE MOI',
+      studio: 'STUDIO',
       projets: 'PROJETS',
+      aproposdemoi: 'A PROPOS DE MOI',
     },
   },
   sounds: [
@@ -106,20 +107,26 @@ const DATA = {
 // Navigation labels visibility
 const showNavLabels = () => {
   const label_accueil = document.querySelector('#label-accueil');
+  const label_studio = document.querySelector('#label-studio');
   const label_aproposdemoi = document.querySelector('#label-aproposdemoi');
   const label_projets = document.querySelector('#label-projets');
   if (window.innerWidth > DATA.breakpoints.m) {
     label_accueil.innerHTML = DATA.text.nav.accueil;
-    label_aproposdemoi.innerHTML = DATA.text.nav.aproposdemoi;
+    label_studio.innerHTML = DATA.text.nav.studio;
     label_projets.innerHTML = DATA.text.nav.projets;
-    [label_accueil, label_aproposdemoi, label_projets].forEach((label) => {
-      label.removeAttribute('data');
-    });
+    label_aproposdemoi.innerHTML = DATA.text.nav.aproposdemoi;
+    [label_accueil, label_aproposdemoi, label_projets, label_studio].forEach(
+      (label) => {
+        label.removeAttribute('data');
+      }
+    );
   } else {
-    [label_accueil, label_aproposdemoi, label_projets].forEach((label) => {
-      label.innerHTML = '';
-      label.setAttribute('data', 'hide');
-    });
+    [label_accueil, label_aproposdemoi, label_projets, label_studio].forEach(
+      (label) => {
+        label.innerHTML = '';
+        label.setAttribute('data', 'hide');
+      }
+    );
   }
 };
 // Hide navigation hash
