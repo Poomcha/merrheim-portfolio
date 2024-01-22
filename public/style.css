@@ -56,10 +56,6 @@ body {
   background-color: var(--primary-color);
   font-size: var(--fs-global-s);
 }
-.content {
-  /* display: none; */
-  /* opacity: 0; */
-}
 header {
   position: absolute;
   z-index: 1;
@@ -102,7 +98,12 @@ aside > ul {
   display: flex;
   align-items: center;
   justify-items: center;
-  gap: var(--m-s);
+  gap: var(--m-m);
+}
+@media screen and (min-width: 900px) {
+  aside > ul {
+    gap: var(--m-s);
+  }
 }
 aside > ul > li > a {
   display: flex;
@@ -397,7 +398,12 @@ footer {
 }
 .nav__links {
   display: flex;
-  gap: var(--m-s);
+  gap: var(--m-m);
+}
+@media screen and (min-width: 900px) {
+  .nav-links {
+    gap: var(--m-s);
+  }
 }
 .nav__links__ctn--reset-m {
   margin-right: 0;

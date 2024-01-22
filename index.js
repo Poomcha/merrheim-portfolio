@@ -108,7 +108,7 @@ const showNavLabels = () => {
   const label_accueil = document.querySelector('#label-accueil');
   const label_aproposdemoi = document.querySelector('#label-aproposdemoi');
   const label_projets = document.querySelector('#label-projets');
-  if (window.innerWidth > DATA.breakpoints.s) {
+  if (window.innerWidth > DATA.breakpoints.m) {
     label_accueil.innerHTML = DATA.text.nav.accueil;
     label_aproposdemoi.innerHTML = DATA.text.nav.aproposdemoi;
     label_projets.innerHTML = DATA.text.nav.projets;
