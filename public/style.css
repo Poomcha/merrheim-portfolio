@@ -51,8 +51,6 @@ body {
   width: 100vw;
   height: 100dvh;
   max-height: 100dvh;
-  scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: var(--primary-color);
@@ -79,7 +77,6 @@ main {
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
-  scroll-behavior: smooth;
 }
 aside {
   position: fixed;
@@ -119,7 +116,8 @@ section {
   min-width: 100vw;
   max-width: 100vw;
   max-height: 100dvh;
-  padding: var(--p-xl) var(--p-m);
+  padding: var(--p-xl) var(--p-m);  
+  transition: transform 600ms 200ms ease-in-out;
 }
 @media screen and (min-width: 1200px) {
   section {

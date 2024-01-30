@@ -197,7 +197,7 @@ const createIframe = (src) => {
   iframe.allow =
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
   iframe.allowFullscreen = true;
-  iframe.loading = "lazy";
+  // iframe.loading = "lazy";
   iframe.modestbranding = true;
 
   return iframe;
@@ -212,12 +212,16 @@ const integrateIframes = (parents) => {
     return;
   });
 };
+// Return window inner width
+const useWindowWidth = () => window.innerWidth;
 // --------------
 //     STATE
 // --------------
 const state = {
   window: {
     loading: true,
+    width: window.innerWidth,
+    activeIndex: 0,
   },
   sound: {
     on: false,
@@ -234,9 +238,12 @@ window.addEventListener("DOMContentLoaded", () => {
   showNavLabels();
   toggleMuteImage();
   togglePlayImage();
+  state.window.width = useWindowWidth();
   window.addEventListener("load", () => {
     const ELEMENTS = {
+      body: document.getElementsByTagName("body")[0],
       content: document.querySelector(".content"),
+      main: document.getElementsByTagName("main")[0],
       scrollables: document.querySelectorAll(".section__content"),
       hoverables: document.querySelectorAll(".external-link"),
       mute: document.querySelector("#mute"),
@@ -244,13 +251,46 @@ window.addEventListener("DOMContentLoaded", () => {
       nav_links: document.querySelectorAll(".nav__links__ctn__link"),
       players: document.querySelectorAll(".player"),
       video_wrappers: document.querySelectorAll(".video-wrapper"),
+      link_home: document.querySelector("#link-home"),
+      link_studio: document.querySelector("#link-studio"),
+      link_projets: document.querySelector("#link-projets"),
+      link_about: document.querySelector("#link-about"),
     };
+    // Add event listener on links
+    const linksId = ["home", "studio", "projets", "about"].map(
+      (link) => `#link-${link}`
+    );
+    const handleNavigation = (e) => {
+      e.preventDefault();
+      let node = e.target;
+      if (node.nodeName !== "A") {
+        node = node.parentNode;
+      }
+      const index = linksId.findIndex((link) => link === `#${node.id}`);
+      if (index !== -1 && index !== state.window.activeIndex) {
+        [...document.getElementsByTagName("section")].forEach((section) => {
+          section.style.transform = `translate3d(${
+            -index * state.window.width
+          }px, 0, 0)`;
+        });
+        state.window.activeIndex = index;
+      } else {
+        return;
+      }
+    };
+    linksId.forEach((link) => {
+      ELEMENTS[link.slice(1).replace("-", "_")].addEventListener(
+        "click",
+        handleNavigation
+      );
+    });
     // Create all Iframes
     integrateIframes(ELEMENTS.video_wrappers);
     // Handle resize
     window.addEventListener("resize", () => {
       // Handle navigation
       showNavLabels();
+      state.window.width = useWindowWidth();
     });
     // Handle hash hiding
     window.addEventListener("hashchange", hideNavigationHash);
