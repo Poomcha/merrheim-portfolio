@@ -13,48 +13,48 @@ const DATA = {
   },
   text: {
     nav: {
-      accueil: 'ACCUEIL',
-      studio: 'STUDIO',
-      projets: 'PROJETS',
-      aproposdemoi: 'A PROPOS DE MOI',
+      accueil: "ACCUEIL",
+      studio: "STUDIO",
+      projets: "PROJETS",
+      aproposdemoi: "A PROPOS DE MOI",
     },
   },
   sounds: [
     {
-      name: 'mainLoop',
-      source: './public/sounds/loop.opus',
+      name: "mainLoop",
+      source: "./public/sounds/loop.opus",
       loop: true,
       html5: false,
       autoplay: true,
       mute: true,
     },
     {
-      name: 'hover',
-      source: './public/sounds/hover.opus',
+      name: "hover",
+      source: "./public/sounds/hover.opus",
       loop: false,
       html5: false,
       autoplay: false,
       mute: true,
     },
     {
-      name: 'click',
-      source: './public/sounds/click.opus',
+      name: "click",
+      source: "./public/sounds/click.opus",
       loop: false,
       html5: false,
       autoplay: false,
       mute: true,
     },
     {
-      name: 'scroll',
-      source: './public/sounds/scroll.opus',
+      name: "scroll",
+      source: "./public/sounds/scroll.opus",
       loop: false,
       html5: false,
       autoplay: false,
       mute: true,
     },
     {
-      name: 'slide',
-      source: './public/sounds/slide.opus',
+      name: "slide",
+      source: "./public/sounds/slide.opus",
       loop: false,
       html5: false,
       autoplay: false,
@@ -64,52 +64,52 @@ const DATA = {
   projects: [
     {
       id: 0,
-      src: 'https://www.youtube.com/embed/Vd0KYRVpHqc?si=fnLCwk5qYIdEHZcG',
+      src: "https://www.youtube.com/embed/Vd0KYRVpHqc?si=fnLCwk5qYIdEHZcG",
     },
     {
       id: 1,
-      src: 'https://www.youtube.com/embed/gynci-i_ldM?si=stAIV31qfR2FmNrl',
+      src: "https://www.youtube.com/embed/gynci-i_ldM?si=stAIV31qfR2FmNrl",
     },
     {
       id: 2,
-      src: 'https://www.youtube.com/embed/34HQEqTc6kE?si=iIwZi1pzHe_HjnGz',
+      src: "https://www.youtube.com/embed/34HQEqTc6kE?si=iIwZi1pzHe_HjnGz",
     },
     {
       id: 3,
-      src: 'https://www.youtube.com/embed/I8PyuJda-vw?si=PLh9tzrFSdvGXdjh',
+      src: "https://www.youtube.com/embed/I8PyuJda-vw?si=PLh9tzrFSdvGXdjh",
     },
     {
       id: 4,
-      src: 'https://www.youtube.com/embed/cnh_969HquU?si=xkswtXnHMlyeHKC6',
+      src: "https://www.youtube.com/embed/cnh_969HquU?si=xkswtXnHMlyeHKC6",
     },
     {
       id: 5,
-      src: 'https://www.youtube.com/embed/h8gDTPXRP4Y?si=a2PPnOOw3MBOZ_gq',
+      src: "https://www.youtube.com/embed/h8gDTPXRP4Y?si=a2PPnOOw3MBOZ_gq",
     },
     {
       id: 6,
-      src: 'https://www.youtube.com/embed/BeIX0AXEh7g?si=OBFnjaRE3WiLeQbh',
+      src: "https://www.youtube.com/embed/BeIX0AXEh7g?si=OBFnjaRE3WiLeQbh",
     },
     {
       id: 7,
-      src: 'https://www.youtube.com/embed/MqsepQF3Ohs?si=AV-FWEB3qXz4P6ue',
+      src: "https://www.youtube.com/embed/MqsepQF3Ohs?si=AV-FWEB3qXz4P6ue",
     },
     {
       id: 8,
-      src: 'https://www.youtube.com/embed/IBOny9dn1Qk?si=57fWEATSVyI455dk',
+      src: "https://www.youtube.com/embed/IBOny9dn1Qk?si=57fWEATSVyI455dk",
     },
     {
       id: 9,
-      src: 'https://www.youtube.com/embed/ZetdIQPV9k4?si=cGe7uGGsEl61M4qy',
+      src: "https://www.youtube.com/embed/ZetdIQPV9k4?si=cGe7uGGsEl61M4qy",
     },
   ],
 };
 // Navigation labels visibility
 const showNavLabels = () => {
-  const label_accueil = document.querySelector('#label-accueil');
-  const label_studio = document.querySelector('#label-studio');
-  const label_aproposdemoi = document.querySelector('#label-aproposdemoi');
-  const label_projets = document.querySelector('#label-projets');
+  const label_accueil = document.querySelector("#label-accueil");
+  const label_studio = document.querySelector("#label-studio");
+  const label_aproposdemoi = document.querySelector("#label-aproposdemoi");
+  const label_projets = document.querySelector("#label-projets");
   if (window.innerWidth > DATA.breakpoints.m) {
     label_accueil.innerHTML = DATA.text.nav.accueil;
     label_studio.innerHTML = DATA.text.nav.studio;
@@ -117,14 +117,14 @@ const showNavLabels = () => {
     label_aproposdemoi.innerHTML = DATA.text.nav.aproposdemoi;
     [label_accueil, label_aproposdemoi, label_projets, label_studio].forEach(
       (label) => {
-        label.removeAttribute('data');
+        label.removeAttribute("data");
       }
     );
   } else {
     [label_accueil, label_aproposdemoi, label_projets, label_studio].forEach(
       (label) => {
-        label.innerHTML = '';
-        label.setAttribute('data', 'hide');
+        label.innerHTML = "";
+        label.setAttribute("data", "hide");
       }
     );
   }
@@ -133,7 +133,7 @@ const showNavLabels = () => {
 const hideNavigationHash = () => {
   const location = window.location;
   if (location.hash) {
-    history.pushState('', document.title, window.location.pathname);
+    history.pushState("", document.title, window.location.pathname);
   }
 };
 // Register sounds
@@ -161,20 +161,20 @@ const togglePlay = () => {
 };
 // Toggle mute image
 const toggleMuteImage = () => {
-  const img_toggler = document.querySelector('#sound-toggler');
+  const img_toggler = document.querySelector("#sound-toggler");
   if (state.sound.on) {
-    img_toggler.setAttribute('src', './public/images/icons/volume-on.svg');
+    img_toggler.setAttribute("src", "./public/images/icons/volume-on.svg");
   } else {
-    img_toggler.setAttribute('src', './public/images/icons/volume-off.svg');
+    img_toggler.setAttribute("src", "./public/images/icons/volume-off.svg");
   }
 };
 // Toggle play image
 const togglePlayImage = () => {
-  const img_toggler = document.querySelector('#loop-control');
+  const img_toggler = document.querySelector("#loop-control");
   if (state.sound.play) {
-    img_toggler.setAttribute('src', './public/images/icons/pause.svg');
+    img_toggler.setAttribute("src", "./public/images/icons/pause.svg");
   } else {
-    img_toggler.setAttribute('src', './public/images/icons/play.svg');
+    img_toggler.setAttribute("src", "./public/images/icons/play.svg");
   }
 };
 // Check for state.sound.on
@@ -190,14 +190,14 @@ const checkMute = (func) => {
 };
 // Create Iframe
 const createIframe = (src) => {
-  const iframe = document.createElement('iframe');
+  const iframe = document.createElement("iframe");
   iframe.src = src;
-  iframe.title = 'Youtube Video Player';
+  iframe.title = "Youtube Video Player";
   iframe.frameBorder = 0;
   iframe.allow =
-    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
   iframe.allowFullscreen = true;
-  iframe.loading = 'lazy';
+  iframe.loading = "lazy";
   iframe.modestbranding = true;
 
   return iframe;
@@ -205,7 +205,7 @@ const createIframe = (src) => {
 // Integrate Iframe
 const integrateIframes = (parents) => {
   parents.forEach((parent) => {
-    const parentId = parent.classList[1].split('-')[2];
+    const parentId = parent.classList[1].split("-")[2];
     parent.appendChild(
       createIframe(DATA.projects.find((project) => project.id == parentId).src)
     );
@@ -230,37 +230,37 @@ const state = {
 // Loading
 
 // Loaded
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   showNavLabels();
   toggleMuteImage();
   togglePlayImage();
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     const ELEMENTS = {
-      content: document.querySelector('.content'),
-      scrollables: document.querySelectorAll('.section__content'),
-      hoverables: document.querySelectorAll('.external-link'),
-      mute: document.querySelector('#mute'),
-      play_pause: document.querySelector('#pause'),
-      nav_links: document.querySelectorAll('.nav__links__ctn__link'),
-      players: document.querySelectorAll('.player'),
-      video_wrappers: document.querySelectorAll('.video-wrapper'),
+      content: document.querySelector(".content"),
+      scrollables: document.querySelectorAll(".section__content"),
+      hoverables: document.querySelectorAll(".external-link"),
+      mute: document.querySelector("#mute"),
+      play_pause: document.querySelector("#pause"),
+      nav_links: document.querySelectorAll(".nav__links__ctn__link"),
+      players: document.querySelectorAll(".player"),
+      video_wrappers: document.querySelectorAll(".video-wrapper"),
     };
     // Create all Iframes
     integrateIframes(ELEMENTS.video_wrappers);
     // Handle resize
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       // Handle navigation
       showNavLabels();
     });
     // Handle hash hiding
-    window.addEventListener('hashchange', hideNavigationHash);
+    window.addEventListener("hashchange", hideNavigationHash);
     // Register Sounds
     const sounds = registerSounds();
     // Play Loop
     sounds.mainLoop.play();
     // Handle mute toggle
     if (ELEMENTS.mute) {
-      ELEMENTS.mute.addEventListener('click', () => {
+      ELEMENTS.mute.addEventListener("click", () => {
         // Make sure autoplay works.
         toggleMute();
         toggleMuteImage();
@@ -272,7 +272,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
     if (ELEMENTS.play_pause) {
-      ELEMENTS.play_pause.addEventListener('click', () => {
+      ELEMENTS.play_pause.addEventListener("click", () => {
         togglePlay();
         togglePlayImage();
         if (state.sound.play) {
@@ -283,12 +283,12 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
     // Handle click sound
-    window.addEventListener('click', () => {
+    window.addEventListener("click", () => {
       checkMute(() => sounds.click.play());
     });
     // Handle slide sound
     ELEMENTS.nav_links.forEach((link) =>
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         e.stopPropagation();
         checkMute(() => sounds.slide.play());
       })
@@ -296,19 +296,19 @@ window.addEventListener('DOMContentLoaded', () => {
     // Handle scroll sound
     let ticking = false;
     ELEMENTS.scrollables.forEach((scrollable) => {
-      scrollable.addEventListener('scroll', () => {
+      scrollable.addEventListener("scroll", () => {
         if (!ticking) {
           checkMute(() => sounds.scroll.play());
         }
         ticking = true;
       });
-      scrollable.addEventListener('scrollend', () => {
+      scrollable.addEventListener("scrollend", () => {
         ticking = false;
       });
     });
     // Handle hover sound
     ELEMENTS.hoverables.forEach((hoverable) => {
-      hoverable.addEventListener('mouseover', () => {
+      hoverable.addEventListener("mouseover", () => {
         checkMute(() => sounds.hover.play());
       });
     });
