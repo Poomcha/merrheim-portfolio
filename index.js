@@ -190,7 +190,6 @@ const createIframe = (src) => {
   iframe.allow =
     'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
   iframe.allowFullscreen = true;
-  iframe.loading = 'lazy';
   iframe.modestbranding = true;
 
   return iframe;
